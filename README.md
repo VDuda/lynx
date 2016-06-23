@@ -5,7 +5,7 @@
 The lynx, has a prominent role in Greek, Norse, and North American mythology. It is considered an elusive and mysterious creature, known in some American Indian traditions as a 'keeper of secrets'. It is also believed to have supernatural eyesight, capable of seeing even through solid objects. As a result, it often symbolises the unravelling of hidden truths, and the psychic power of clairvoyance.
 
 
-**Managing secrets in AWS**
+## Managing secrets in AWS 
 
 Applications and Systems often need access to some shared credential. For example, titan needs access to the mongo database password, or some API token to access a third party service. At the moment we’re managing these secrets by storing them on a file. Using services like KMS and Dynamo we can create a centralized key store to manage secrets and keys without ever needing to persist the values on a machine.
 
