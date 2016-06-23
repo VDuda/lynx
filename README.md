@@ -37,4 +37,17 @@ aws dynamodb scan --table-name lynx-kms
 
 #### AWS IAM
 
-Within AWS IAM, each IAM role will need to attach the policy "Access-Lynx" to have the ability read the encrypted passwords from the key store. The policy allows access to the key store and the cmk. The policy is strictly set to allow read-only access. 
+Within AWS IAM, each IAM role will need to attach the policy "Access-Lynx" to have the ability read the encrypted passwords from the key store. The policy allows access to the key store and the cmk. The policy is strictly set to allow read-only access.
+
+#### Go Dependencies
+We use Godep to manage Go packages and their dependencies.
+
+```
+go get github.com/tools/godep
+
+# Check out listed dependency versions
+godep restore
+
+# List and copy dependencies into Godeps
+godep save
+```

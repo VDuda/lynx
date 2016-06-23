@@ -56,21 +56,11 @@ resource "aws_dynamodb_table" "lynx-kms-store" {
 		name = "name"
 		type = "S"
 	}
-	/*attribute = {
-		name = "user"
-		type = "S"
-	}
-	attribute = {
-		name = "password"
-		type = "S"
-	}
-	attribute = {
-		name = "keyid"
-		type = "S"
-	}*/
 }
 
 #### KMS
+
+# legacy
 resource "aws_kms_key" "lynx" {
     description = "LYNX KMS Key"
     deletion_window_in_days = 10
@@ -79,4 +69,26 @@ resource "aws_kms_key" "lynx" {
 resource "aws_kms_alias" "lynx" {
     name = "alias/LYNX"
     target_key_id = "${aws_kms_key.lynx.key_id}"
+}
+
+# tempo
+resource "aws_kms_key" "lynx-tempo" {
+    description = "LYNX-tempo KMS Key"
+    deletion_window_in_days = 10
+}
+
+resource "aws_kms_alias" "lynx-tempo" {
+    name = "alias/lynx-tempo"
+    target_key_id = "${aws_kms_key.lynx-tempo.key_id}"
+}
+
+# edi
+resource "aws_kms_key" "lynx-edi" {
+    description = "LYNX-edi KMS Key"
+    deletion_window_in_days = 10
+}
+
+resource "aws_kms_alias" "lynx-edi" {
+    name = "alias/lynx-edi"
+    target_key_id = "${aws_kms_key.lynx-edi.key_id}"
 }
