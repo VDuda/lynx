@@ -69,3 +69,14 @@ resource "aws_dynamodb_table" "lynx-kms-store" {
 		type = "S"
 	}*/
 }
+
+#### KMS
+resource "aws_kms_key" "lynx" {
+    description = "LYNX KMS Key"
+    deletion_window_in_days = 10
+}
+
+resource "aws_kms_alias" "lynx" {
+    name = "alias/LYNX"
+    target_key_id = "${aws_kms_key.lynx.key_id}"
+}
