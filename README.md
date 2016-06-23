@@ -23,7 +23,7 @@ terraform apply -var-file=lynx.tfvars
 Placing an item into the table
 
 ```
-aws dynamodb put-item --table-name lynx-kms --item "{ \"id\": {\"N\": \"1\"}, \"name\": {\"S\": \"mysql_root\"}, \"value\": {\"S\": \"Password123\"} }"
+aws dynamodb put-item --table-name lynx-kms --item "{ \"name\": {\"S\": \"mysql_root\"}, \"value\": {\"S\": \"Password123\"} }"
 ```
 
 Looking up table values
@@ -31,3 +31,7 @@ Looking up table values
 ```
 aws dynamodb scan --table-name lynx-kms
 ```
+
+#### AWS IAM
+
+Within AWS IAM, each IAM role will need to attach the policy "Access-Lynx" to have the ability read the encrypted passwords from the key store. The policy allows access to the key store and the cmk. The policy is strictly set to allow read-only access. 

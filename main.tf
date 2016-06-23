@@ -51,10 +51,10 @@ resource "aws_dynamodb_table" "lynx-kms-store" {
 	name = "lynx-kms"
 	read_capacity = 10
 	write_capacity = 10
-	hash_key = "id"
+	hash_key = "name"
 	attribute = {
-		name = "id"
-		type = "N"
+		name = "name"
+		type = "S"
 	}
 	/*attribute = {
 		name = "user"
