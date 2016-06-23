@@ -3,6 +3,12 @@
 *.a
 *.so
 
+# Terraform
+*.tfvars
+.terraform
+*.tfstate*
+docker-creds.json
+
 # Folders
 _obj
 _test
