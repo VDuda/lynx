@@ -1,4 +1,4 @@
 vpc=somevpc
-public_subnet_c=subid
-public_subnet_d=subid
-public_subnet_e=subid
+subnet_public_c=subid
+subnet_public_d=subid
+subnet_public_e=subid

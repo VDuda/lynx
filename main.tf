@@ -1,7 +1,7 @@
 ##### EC2
 
 resource "aws_security_group" "sg-lynx" {
-  name = "sg-lynx"
+  name = "lynx"
   vpc_id = "${var.vpc}"
   description = "Lynx security group"
 
@@ -24,10 +24,10 @@ resource "aws_security_group" "sg-lynx" {
   }
 }
 
-resource "aws_instance" "api_gateway_primary" {
+resource "aws_instance" "lynx-ec2" {
   ami = "ami-f0c1ce9a"
   instance_type = "m3.medium"
-  subnet_id = "${var.public_subnet_c}"
+  subnet_id = "${var.subnet_public_c}"
   iam_instance_profile = "Lynx"
   key_name = "launcher"
   ebs_optimized = false
@@ -51,13 +51,12 @@ resource "aws_dynamodb_table" "lynx-kms-store" {
 	name = "lynx-kms"
 	read_capacity = 10
 	write_capacity = 10
-	hash_key = "Id"
-	stream_enabled = true
+	hash_key = "id"
 	attribute = {
 		name = "id"
 		type = "N"
 	}
-	attribute = {
+	/*attribute = {
 		name = "user"
 		type = "S"
 	}
@@ -68,5 +67,5 @@ resource "aws_dynamodb_table" "lynx-kms-store" {
 	attribute = {
 		name = "keyid"
 		type = "S"
-	}
+	}*/
 }
