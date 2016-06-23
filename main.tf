@@ -67,7 +67,7 @@ resource "aws_kms_key" "lynx" {
 }
 
 resource "aws_kms_alias" "lynx" {
-    name = "alias/LYNX"
+    name = "alias/lynx"
     target_key_id = "${aws_kms_key.lynx.key_id}"
 }
 
