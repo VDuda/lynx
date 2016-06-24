@@ -9,6 +9,10 @@ The lynx, has a prominent role in Greek, Norse, and North American mythology. It
 
 Applications and Systems often need access to some shared credential. For example, titan needs access to the mongo database password, or some API token to access a third party service. At the moment we’re managing these secrets by storing them on a file. Using services like KMS and Dynamo we can create a centralized key store to manage secrets and keys without ever needing to persist the values on a machine.
 
+Using services like KMS and Dynamo we can create a centralized key store to manage secrets and keys without ever needing to persist the values on a machine or s3. Each team can securely access the secret key store, view all the keys for the secrets (however, the secret itself will be encrypted), and to use the secret the team member will need the proper permissions set within their AWS IAM policy to decrypt a key. This effectively allows every product member to see the keys available, but only exposes the secret value to members who have permissions to view the secret value. Also, team leads will have permissions to create new keys. The secret values will be encrypted using the team's key.  
+
+Lynx is effectively the architecture below, we've also created shell and Go interfaces to interact with Lynx. The interfaces allow the creation, decryption, listing, and deletion of keys.
+
 ![KMS Secret Architecture](https://s3.amazonaws.com/uploads.hipchat.com/102551/3053530/YURmeI0OIcLj8ta/upload.png)
 
 More information available about KMS within their [white paper here](https://d0.awsstatic.com/whitepapers/KMS-Cryptographic-Details.pdf)
@@ -54,6 +58,8 @@ godep save
 
 #### Lynx sh interface
 To access lynx from the shell, you can use the cli/lynxcli.sh to interact with the key store with your given aws credentials.
+
+**NOTE:** Contact DevOps/Infra for AWS permissions. 
 
 ```
 ./cli/lynxcli.sh
