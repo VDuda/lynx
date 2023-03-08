@@ -1,6 +1,6 @@
 # Lynx
 
-![LYNX](https://s3.amazonaws.com/uploads.hipchat.com/102551/2181055/IGXIWUrEoqX7tXF/lynx.png)
+![LYNX](https://upload.wikimedia.org/wikipedia/commons/4/4b/Lynx_du_Canada_.jpg)
 
 The lynx, has a prominent role in Greek, Norse, and North American mythology. It is considered an elusive and mysterious creature, known in some American Indian traditions as a 'keeper of secrets'. It is also believed to have supernatural eyesight, capable of seeing even through solid objects. As a result, it often symbolises the unravelling of hidden truths, and the psychic power of clairvoyance.
 
